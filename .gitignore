@@ -1,0 +1,17 @@
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# Python virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+
+# Node (optional if Node bot)
+node_modules/
