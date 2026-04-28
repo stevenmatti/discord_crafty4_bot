@@ -4,6 +4,9 @@ import logging
 from dotenv import load_dotenv
 import os
 
+# import function to send start/stop minecraft server
+from crafty_request_api import minecraft_server_commands
+
 load_dotenv()
 token = os.getenv('DISCORD_TOKEN')
 
@@ -39,5 +42,16 @@ async def on_message(message):
 async def hello(ctx):
     await ctx.send(f"Hello {ctx.author.mention}!")
 
+
+@bot.command()
+async def start(ctx): 
+    result = minecraft_server_commands("start_server")
+    await ctx.send(f"Minecraft Server Started!!")
+
+
+@bot.command()
+async def stop(ctx): 
+    result = minecraft_server_commands("stop_server")
+    await ctx.send(f"Minecraft Server Stopped!!")
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
